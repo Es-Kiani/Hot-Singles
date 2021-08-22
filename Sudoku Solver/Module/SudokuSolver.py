@@ -1,30 +1,18 @@
-class SudokuSolver():
-    def __init__(self, _puzzle=None):
+# * Esfandiar-Kiani *
+from Module.Singleton import Singleton
+
+
+class SudokuSolver(Singleton):
+    def __init__(self, _puzzle: list = None) -> None:
         self._puzzle = _puzzle
+        self._valid_Numbers = list(range(1, 10))
         if self._puzzle:
             self._row_Count = len(self._puzzle)
             self._column_Count = len(self._puzzle[0])
         else:
             self._row_Count = 0
             self._column_Count = 0
-
-        self._valid_Numbers = list(range(1, 10))
         return
-
-    def print(self, puzzle=None):
-        if puzzle:
-            self.__init__(puzzle)
-
-        for i in range(self._row_Count):
-            if i % 3 == 0:
-                print()
-
-            for j in range(self._column_Count):
-                if j % 3 == 0 and j != 0:
-                    print("\t", end="")
-                print(self._puzzle[i][j], end="")
-
-            print()
 
     def _next_Empty(self):
         for i in range(self._row_Count):
@@ -37,7 +25,7 @@ class SudokuSolver():
         row, column = self._next_Empty()
         return True if row is None else False
 
-    def _check_Valid(self, I, J, guessNum):
+    def _check_Valid(self, I: int, J: int, guessNum: int):
         row = self._puzzle[I]
         column = [self._puzzle[i][J] for i in range(self._row_Count)]
         square = []
@@ -54,7 +42,7 @@ class SudokuSolver():
             return False
         return True
 
-    def start_Engine(self):
+    def _start_Engine(self):
         row, col = self._next_Empty()
 
         # * Last Return
@@ -66,7 +54,7 @@ class SudokuSolver():
                 self._puzzle[row][col] = guess
 
                 # * Recursive Algorithm
-                if SudokuSolver(self._puzzle).start_Solver_Engine():
+                if SudokuSolver(self._puzzle)._start_Engine():
                     return True
 
             self._puzzle[row][col] = 0
@@ -74,7 +62,43 @@ class SudokuSolver():
         # * Return False If Puzzle Is Unsolvable
         return False
 
-    def solve(self, puzzle=None):
+    def writeTo_File(self, puzzle, fileName: str = "Solved Sudoku", filePath: str = "./"):
+        if puzzle:
+            self.__init__(puzzle)
+            
+        with open(f'{filePath}{fileName}.txt', 'a+') as file:
+            file.write("\n")
+
+            for i in range(self._row_Count):
+                if i % 3 == 0:
+                    file.write("\n")
+
+                for j in range(self._column_Count):
+                    if j % 3 == 0 and j != 0:
+                        file.write("\t")
+                    file.write(str(self._puzzle[i][j]))
+                file.write("\n")
+
+            file.write("\n")
+            file.close()
+        return
+
+    def print(self, puzzle: list = None):
+        if puzzle:
+            self.__init__(puzzle)
+
+        for i in range(self._row_Count):
+            if i % 3 == 0:
+                print()
+
+            for j in range(self._column_Count):
+                if j % 3 == 0 and j != 0:
+                    print("\t", end="")
+                print(self._puzzle[i][j], end="")
+
+            print()
+
+    def solve(self, puzzle: list = None, writeToFile: bool = False, fileName: str = "Solved Sudoku", filePath: str = "./"):
         if puzzle:
             self.__init__(puzzle)
 
@@ -82,50 +106,16 @@ class SudokuSolver():
             print("Your Puzzle Is Empty...")
             return -1
 
-        is_Solved = self.start_Engine()
+        is_Solved = self._start_Engine()
 
         if is_Solved:
-            print("Puzzle Solved.\n See It: ")
+            if writeToFile:
+                self.writeTo_File(self._puzzle, fileName, filePath)
+            print(
+                f"Puzzle Solved And Writhed To The {filePath}{fileName}.\n See It: ")
             # * Print Solved Puzzle
             self.print()
-            return True
+            return True, self._puzzle
         else:
             print("Sorry...\nThis Puzzle Is Unsolvable!")
-            return False
-
-
-#
-
-
-# ? Puzzle Schematic:
-#   0 0 0   0 0 0   0 0 0
-#   0 0 0   0 0 0   0 0 0
-#   0 0 0   0 0 0   0 0 0
-#
-#   0 0 0   0 0 0   0 0 0
-#   0 0 0   0 0 0   0 0 0
-#   0 0 0   0 0 0   0 0 0
-#
-#   0 0 0   0 0 0   0 0 0
-#   0 0 0   0 0 0   0 0 0
-#   0 0 0   0 0 0   0 0 0
-
-
-#
-
-
-# ? Real Puzzle For Solve:
-# puzzle = [
-#              [0, 0, 0,     1, 0, 2,     0, 3, 7],
-#              [0, 0, 0,     4, 0, 9,     5, 8, 6],
-#              [0, 0, 6,     0, 0, 8,     9, 0, 0],
-#
-#              [0, 7, 0,     0, 0, 0,     8, 6, 5],
-#              [0, 0, 1,     6, 0, 0,     0, 0, 3],
-#              [6, 3, 0,     2, 0, 0,     0, 0, 1],
-#
-#              [8, 1, 7,     3, 4, 5,     6, 2, 9],
-#              [3, 9, 0,     0, 2, 0,     0, 5, 0],
-#              [0, 6, 5,     0, 0, 0,     0, 0, 0]
-# ]
-# But You Must Remove "\t" and " " in Puzzle List Before Run Solver.
+            return False, self._puzzle
