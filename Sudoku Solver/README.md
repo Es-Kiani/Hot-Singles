@@ -18,6 +18,8 @@ Sudoku Puzzle Solver
 ```
 
 
+
+
 ## A Puzzle For Solve
 ```
   puzzle = [
