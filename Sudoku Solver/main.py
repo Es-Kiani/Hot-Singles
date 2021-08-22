@@ -1,3 +1,4 @@
+from os import truncate
 from Module.SudokuSolver import SudokuSolver
 
 puzzle = [
@@ -12,6 +13,8 @@ puzzle = [
     [0, 6, 5, 0, 0, 0, 0, 0, 0]
 ]
 
+if __name__=="__main__":
+    # SudokuSolver().print(puzzle)
+    is_Solve, solved_Puzzle = SudokuSolver().solve(puzzle, writeToFile=True)
 
-# SudokuSolver().print(puzzle)
-SudokuSolver().solve(puzzle)
+
