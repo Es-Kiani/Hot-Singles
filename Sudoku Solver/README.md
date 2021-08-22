@@ -3,7 +3,7 @@
 Sudoku Puzzle Solver 
 
 ## Puzzle Schematic
-
+```
 >    0 0 0    0 0 0    0 0 0
 >    0 0 0    0 0 0    0 0 0
 >    0 0 0    0 0 0    0 0 0
@@ -15,6 +15,7 @@ Sudoku Puzzle Solver
 >    0 0 0    0 0 0    0 0 0
 >    0 0 0    0 0 0    0 0 0
 >    0 0 0    0 0 0    0 0 0
+```
 
 
 ## A Puzzle For Solve
