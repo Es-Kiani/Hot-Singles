@@ -62,7 +62,7 @@ class SudokuSolver(Singleton):
         # * Return False If Puzzle Is Unsolvable
         return False
 
-    def writeTo_File(self, puzzle, fileName: str = "Solved Sudoku", filePath: str = "./"):
+    def writeTo_File(self, puzzle, fileName: str, filePath: str):
         if puzzle:
             self.__init__(puzzle)
             
@@ -112,7 +112,7 @@ class SudokuSolver(Singleton):
             if writeToFile:
                 self.writeTo_File(self._puzzle, fileName, filePath)
             print(
-                f"Puzzle Solved And Writhed To The {filePath}{fileName}.\n See It: ")
+                f"Puzzle Solved And Writhed To The {filePath}{fileName}.txt .\n See It: ")
             # * Print Solved Puzzle
             self.print()
             return True, self._puzzle

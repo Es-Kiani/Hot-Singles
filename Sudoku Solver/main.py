@@ -1,4 +1,3 @@
-from os import truncate
 from Module.SudokuSolver import SudokuSolver
 
 puzzle = [
