@@ -21,9 +21,20 @@ class SudokuSolver(Singleton):
                     return i, j
         return None, None
 
-    def _is_Empty(self):
-        row, column = self._next_Empty()
-        return True if row is None else False
+    def _check_Solvable(self):
+        for i in range(self._row_Count):
+            for j in range(self._column_Count):
+                if self._puzzle[i][j] != 0:
+                    temp = self._puzzle[i][j]
+                    self._puzzle[i][j] = 0
+                    
+                    if not self._check_Valid(i, j, temp):
+                        self.solvable = False
+                        return False
+                    
+                    self._puzzle[i][j] = temp
+        return True
+
 
     def _check_Valid(self, I: int, J: int, guessNum: int):
         row = self._puzzle[I]
@@ -102,13 +113,9 @@ class SudokuSolver(Singleton):
         if puzzle:
             self.__init__(puzzle)
 
-        if self._is_Empty():
-            print("Your Puzzle Is Empty...")
-            return -1
 
-        is_Solved = self._start_Engine()
-
-        if is_Solved:
+        if self._check_Solvable():
+            self._start_Engine()
             if writeToFile:
                 self.writeTo_File(self._puzzle, fileName, filePath)
             print(
