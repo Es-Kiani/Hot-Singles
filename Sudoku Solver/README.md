@@ -4,6 +4,7 @@ A Command-Line Sudoku Puzzle Solver Program.
 
 ## Puzzle Schematic
 ```
+
     0 0 0  |  0 0 0  |  0 0 0
     0 0 0  |  0 0 0  |  0 0 0
     0 0 0  |  0 0 0  |  0 0 0
@@ -15,6 +16,7 @@ A Command-Line Sudoku Puzzle Solver Program.
     0 0 0  |  0 0 0  |  0 0 0
     0 0 0  |  0 0 0  |  0 0 0
     0 0 0  |  0 0 0  |  0 0 0
+    
 ```
 
 
@@ -35,13 +37,14 @@ A Command-Line Sudoku Puzzle Solver Program.
               [3, 9, 0,     0, 2, 0,     0, 5, 0],
               [0, 6, 5,     0, 0, 0,     0, 0, 0]
            ]
+           
 ```
 
 ## Usage
 
-Define the puzzle with correct format...
+How to define the puzzle in correct format?
 
-Use 'SudokuSolver' class and than 'solve' method to solve puzzle and print it to console.
+Use 'SudokuSolver' class  to creat a sudoku solver object and than 'solve' method to solve puzzle and print it to console.
 Also you can use 'print' method to print any puzzle that you define it befor in the code.
 
 If you want to save your solved puzzle into a '*.txt' file, you can add "writeToFile=True" argument when call the 'solve' method.
@@ -50,6 +53,7 @@ The defult arguments of 'solve' method for writing to a '*.txt' file is:
 ```
 def solve(self, puzzle: list = None, writeToFile: bool = False, fileName: str = "Solved Sudoku", filePath: str = "./"): ...
 ```
+
 
 ## Code
 
@@ -83,7 +87,6 @@ SudokuSolver().solve(puzzle)
 # solver.solve(puzzle, True, "Solved Sudoku", filePath = "./")
 
 # solver.print(puzzle)
-
 
 ```
 
