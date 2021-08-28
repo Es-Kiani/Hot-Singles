@@ -1,20 +1,20 @@
 # README
 
-Sudoku Puzzle Solver 
+A Command-Line Sudoku Puzzle Solver Program.
 
 ## Puzzle Schematic
 ```
-    0 0 0    0 0 0    0 0 0
-    0 0 0    0 0 0    0 0 0
-    0 0 0    0 0 0    0 0 0
-                                                            
-    0 0 0    0 0 0    0 0 0
-    0 0 0    0 0 0    0 0 0
-    0 0 0    0 0 0    0 0 0
-                                                            
-    0 0 0    0 0 0    0 0 0
-    0 0 0    0 0 0    0 0 0
-    0 0 0    0 0 0    0 0 0
+    0 0 0  |  0 0 0  |  0 0 0
+    0 0 0  |  0 0 0  |  0 0 0
+    0 0 0  |  0 0 0  |  0 0 0
+    ------   -------   -------                               
+    0 0 0  |  0 0 0  |  0 0 0
+    0 0 0  |  0 0 0  |  0 0 0
+    0 0 0  |  0 0 0  |  0 0 0
+    ------   -------   -------                               
+    0 0 0  |  0 0 0  |  0 0 0
+    0 0 0  |  0 0 0  |  0 0 0
+    0 0 0  |  0 0 0  |  0 0 0
 ```
 
 
@@ -71,7 +71,19 @@ SudokuSolver().solve(puzzle)
 # SudokuSolver().solve(puzzle, writeToFile=True)
 # SudokuSolver().solve(puzzle, True, fileName = "Solved Sudoku")
 # SudokuSolver().solve(puzzle, True, "Solved Sudoku", filePath = "./")
+
 # SudokuSolver().print(puzzle)
+
+
+
+# solver = SudokuSolver()
+# solver.solve(puzzle)
+# solver.solve(puzzle, writeToFile=True)
+# solver.solve(puzzle, True, fileName = "Solved Sudoku")
+# solver.solve(puzzle, True, "Solved Sudoku", filePath = "./")
+
+# solver.print(puzzle)
+
 
 ```
 
