@@ -51,7 +51,7 @@ If you want to save your solved puzzle into a '*.txt' file, you can add "writeTo
 
 The defult arguments of 'solve' method for writing to a '*.txt' file is: 
 ```
-def solve(self, puzzle: list = None, writeToFile: bool = False, fileName: str = "Solved Sudoku", filePath: str = "./"): ...
+def solve(self, puzzle: list = None, writeToFile: bool = False, fileName: str = "Solved Sudoku", filePath: str = "./"): -> Bool , puzzle ...
 ```
 
 
