@@ -3,34 +3,22 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 
-
+def encode():
+    Outbox.config(state="normal")
+    Outbox.delete("1.0", "end-1c")
+    Outbox.insert(END, Base64Encode(Inputbox.get("1.0", "end-1c")))
+    Outbox.config(state="disabled")
+    
 Window = Tk()
 Window.title("Base64 Encoder")
 Window.geometry("520x570+300+115")
 Window.resizable(False, False)
 
 Font = "Arial"
-Txt_Input = StringVar()
-Txt_Output = StringVar()
-
 Title = Label(Window, text="Welcome To My Base64 Encoder", font=(24))
-
-
-def encode():
-    Outbox.config(state="normal")
-    Outbox.delete("1.0", "end-1c")
-    Outbox.insert(END, Base64Encode(Inputbox.get("1.0", "end-1c")))
-    Outbox.config(state="disabled")
-
-
 Inputbox = Text(Window, width=50, bd=3, font=(Font, 15))
-
-Do_Btn = ttk.Button(Window, text="Encode",
-                    cursor="hand2", command=encode)
-
-
+Do_Btn = ttk.Button(Window, text="Encode", cursor="hand2", command=encode)
 Outbox = Text(Window, width=50, bd=3, font=(Font, 15))
-
 CopyRight = Label(Window, text="""
 ©2022 Esfandiar Kiani, All rights reserved.
 """)
