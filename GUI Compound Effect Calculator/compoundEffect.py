@@ -1,11 +1,12 @@
 import datetime
+import sys
 
 
-def CompoundEffect(got_Asset, got_Percent, got_Step) -> float:    
-    
-    asset, percent, step = abs(got_Asset), abs(got_Percent), abs(got_Step)
+def CompoundEffect(got_Asset, got_Percent, got_Step) -> float:
     now_Time = datetime.datetime.now()
-    with open("C:/Users/Masuod/Desktop/Result.txt", "a+") as file:
+    asset, percent, step = abs(got_Asset), abs(got_Percent), abs(got_Step)
+    
+    with open(f"{os.getcwd()}/Result.txt", "a+") as file:
         file.write(f"{now_Time}: \n")
         file.write(f"asset:{got_Asset} percent:{got_Percent} step:{got_Step}  \n")
         
