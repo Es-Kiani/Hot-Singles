@@ -34,7 +34,7 @@ Pythonic GUI Compound Effect Calculator for Calculating Compound Effect When You
 
 
 
-###   	:file_folder:   After once you press the _"Calculate"_ button, we store all of your calculated data and steps information in a _Result.txt_ file near the ```main.py``` file in the same dirctory.
+###   	:file_folder:   After once you press the _"Calculate"_ button, we store all of your calculated data and steps information in a _Result.txt_ file in the Desktop dirctory.
 
 <img src="https://github.com/E-Kiani/Compound-Effect-Calculator/blob/main/ScSh2.PNG">
 
