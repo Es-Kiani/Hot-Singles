@@ -8,4 +8,8 @@ mkdir bin && cd bin
 
 pyinstaller --windowed --onefile ../main.py
 
+cd dist
+
+mklink "%USERPROFILE%/Desktop/Compound Effect Calculator" "main.exe"
+
 exit
