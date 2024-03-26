@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function myFunction() {
+            var checkBox = document.getElementById("4");
+            var text = document.getElementById("text");
+            if (checkBox.checked == true) {
+                text.style.display = "block";
+            } else {
+                text.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<!-- اره اره ما کنار همیم -->
+
+<body>
+    <h1>Login</h1>
+    <form method="post" action="#" target="_self" autocomplete="on" enctype="application/x-www-form-urlencoded">
+        <p class="Email">Email: </p><input type="email" name="email" placeholder="Enter your email" id="1">
+        <br>
+        <p class="Pass">Password: </p><input type="password" name="password" placeholder="Enter your password" id="2">
+        <br>
+        <label for="3" class="Country">Chose Your Country: </label>
+        <select name="Country" id="3" class="Country">
+            <option value="Brazil">Australia</option>
+            <option value="Brazil">Africa</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Egypt">Egypt</option>
+            <option value="Germany">Germany</option>
+            <option value="Italy">Italy</option>
+            <optgroup label="Your Location">
+                <option value="Iran" selected>Iran</option>
+            </optgroup>
+            <option value="Japan">Japan</option>
+            <option value="Russia">Russia</option>
+            <option value="Spain">Spain</option>
+            <option value="Turkey">Turkey</option>
+            <option value="UAE">UAE</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+        </select>
+        <br>
+        <input type="checkbox" class="test1" name="remMe" id="4" onclick="myFunction()">
+        <label for="4" class="remMe">Remember Me</label>
+        <br>
+        <p id="text" class="remMe" style="display:none">I'll Remember You</p>
+        <br>
+        <button type="reset" class="reset">Reset</button>
+        <input type="submit" value="Login" id="5">
+        <!-- <input type="button" value="Login" id="4"> -->
+        <!-- <br><button type="submit">Login</button> -->
+    </form>
+</body>
+
+</html>
