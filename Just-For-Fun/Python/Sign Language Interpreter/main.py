@@ -1,4 +1,0 @@
-from Module.SignLanguageInterpreter import *
-
-
-
