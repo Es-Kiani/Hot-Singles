@@ -1,0 +1,17 @@
+/*
+ * ao.c
+ *
+ * Created: 2024-01-17 06:39:42 PM
+ * Author: Roshan
+ */
+
+#include <io.h>
+
+void main(void)
+{
+while (1)
+    {
+    // Please write your application code here
+
+    }
+}
